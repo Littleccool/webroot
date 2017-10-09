@@ -1,0 +1,122 @@
+<include file = "public:head"/>
+	<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">整包更新列表</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <if condition="$caozuo.add eq 1"><a class="btn btn-primary btn-sm" href="{:U($By_tpl.'/apk_add')}"><i class="fa fa-plus"></i> 添加整包更新版本</a></if>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr class="order_tr">
+									<th><div style="text-align:center">编号</div></th>
+                                    <th><div style="text-align:center">版本号</div></th>
+                                    <th><div style="text-align:center">更新内容</div></th>
+									<th><div style="text-align:center">操作</div></th>
+									<th><div style="text-align:center">APK文件地址</div></th>
+									<th><div style="text-align:center">添加人</div></th>
+									<th><div style="text-align:center">添加时间</div></th>
+									<th><div style="text-align:center">发布时间</div></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <volist	name="list"  id="vo">
+										<empty name="vo['update_show']">
+										<form class="form-horizontal" method="POST" action="{:U($By_tpl.'/apk_do')}" id="hotForm{$vo['id']}" name="form{$vo['id']}" >
+										<input type="hidden" name="id" value="{$vo['id']}" />	
+										<tr class="order_tr">
+                                            <td><div style="text-align:center">{$vo.id}</div></td>
+                                            <td><div style="text-align:center">{$vo.version}</div></td>
+                                            <td></td>
+											<td><div style="text-align:center">
+											<if condition="$vo.states eq 1">
+											已发布
+											<else />
+											<if condition="$caozuo.pub eq 1"><a onclick="gosubmit('{$vo['id']}')" href="javascript:;">发布</a></if>&nbsp;&nbsp;<if condition="$caozuo.edit eq 1"><a href="{:U($By_tpl.'/apk_edit','id='.$vo['id'])}">编辑</a></if><!-- | <a onclick="return confirm('您确定删除该纪录吗？')" href="{:U($By_tpl.'/version_delete','id='.$vo['id'])}">删除</a>-->
+											</if></div>
+											</td>
+											<td><div style="text-align:center">{$vo.src}</div></td>
+											<td><div style="text-align:center">{$vo.createuser}</div></td>
+											<td><div style="text-align:center">{$vo.addtime}</div></td>
+											<td><div style="text-align:center">{$vo.publictime}</div></td>
+                                            
+                                        </tr>
+										</form>   
+										<else />
+										<form class="form-horizontal" method="POST" action="{:U($By_tpl.'/apk_do')}" id="hotForm{$vo['id']}" name="form{$vo['id']}" >
+										<input type="hidden" name="id" value="{$vo['id']}" />	
+											<volist	name="vo['update_show']" key="k" id="vo1">
+											<input type="hidden" name="prev_ver[]" value="{$vo1.prev_ver}" />
+											<input type="hidden" name="next_ver[]" value="{$vo1.next_ver}" />
+										<tr class="order_tr">
+                                            <td><div style="text-align:center"><if condition="$k eq 1">{$vo.id}</if></div></td>
+                                            <td><div style="text-align:center"><if condition="$k eq 1">{$vo.version}</if></div></td>
+                                            <td>
+											{$vo1.prev_ver}=>{$vo1.next_ver}&nbsp;
+											<select name="flag[]" style="height:23px;">
+												<option value="0" <if condition="$vo1.flag eq 0">selected</if>>非强制</option>
+												<option value="1" <if condition="$vo1.flag eq 1">selected</if>>强制</option>
+											</select>&nbsp;
+											<select name="status[]" id="status{$k}" onchange="show_channel('{$k}')" style="height:23px;">
+												<option value="0" <if condition="$vo1.status eq 0">selected</if>>不更新</option>
+												<option value="1" <if condition="$vo1.status eq 1">selected</if>>全部更新</option>
+												<option value="2" <if condition="$vo1.status eq 2">selected</if>>部分更新</option>
+											</select>&nbsp;<input type="text" id="channel{$k}" name="channel[]" placeholder="{$vo1.prev_ver}部分更新，多个渠道用,号隔开" style="width:200px; <if condition="$vo1.status neq 2">display:none</if>" value="{$vo1.channel}" />
+											</td>
+											<td>
+											<if condition="$k eq 1">
+											<if condition="$vo.states eq 1">
+											<a onclick="gosubmit('{$vo['id']}')" href="javascript:;">更新发布渠道</a> 已发布
+											<else />
+											<a onclick="gosubmit('{$vo['id']}')" href="javascript:;">发布</a>&nbsp;&nbsp;<a href="{:U($By_tpl.'/apk_edit','id='.$vo['id'])}">编辑</a><!-- | <a onclick="return confirm('您确定删除该纪录吗？')" href="{:U($By_tpl.'/version_delete','id='.$vo['id'])}">删除</a>-->
+											</if>
+											</if>
+											</td>
+											<td><div style="text-align:center"><if condition="$k eq 1">{$vo.src}</if></div></td>
+											<td><div style="text-align:center"><if condition="$k eq 1">{$vo.createuser}</if></div></td>
+											<td><div style="text-align:center"><if condition="$k eq 1">{$vo.addtime}</if></div></td>
+											<td><div style="text-align:center"><if condition="$k eq 1">{$vo.publictime}</if></div></td>
+                                            
+                                        </tr>
+											</volist>
+                                        </form>
+										</empty>
+										</volist>
+                                </tbody>
+                            </table>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+	<link href="{$Think.const.CSS_PATH}order.css" rel="stylesheet">
+<script>
+function gosubmit(id){
+	name = "#hotForm"+id;
+	$(name).submit();
+}
+
+function show_channel(id){
+	name = "#status"+id;
+	status = $(name).val();
+	name2 = "#channel"+id;
+	if (status == "2"){
+		$(name2).show();
+	}else{
+		$(name2).hide();
+	}
+}
+</script>
+<include file = "public:footer"/>

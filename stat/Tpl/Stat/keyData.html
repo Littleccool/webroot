@@ -1,0 +1,84 @@
+<include file = "public:head"/>
+	<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">关键数据</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+		<form class="form-horizontal" method="POST" action="" id="addUserForm">
+			<div class="form-group">
+				<label for="username" class="col-sm-2 control-label">平台</label>
+				<div class="col-sm-4">
+					<select  name="appId" style="height:30px;">
+						<volist name="gamelist" id="vo">
+						<option value="{$vo.appId}">{$vo.name}</option>
+						</volist>
+					</select>
+				</div>
+			</div>
+		<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" id="addUserSubmit" class="btn btn-primary">提 交</button>
+				</div>
+			</div>
+        </form>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" cellspacing="1" cellpadding="0"
+            width="100%" style="table-layout:fixed">
+                                <thead>
+                                <tr>
+                                    <th width="50">游戏名称</th>
+                                    <th width="50">日期</th>
+									<th width="50">总用户</th>
+									<th width="50">新用户</th>
+									<th width="50">绑定用户</th>
+									<th width="50">dau</th>
+									<th width="50">dou</th>
+									<th width="50">充值额</th>
+									<th width="50">充值人数</th>
+									<th width="50">付费率</th>
+									<th width="50">arpu</th>
+									<th width="50">钻石消耗</th>
+									<th width="50">开局数</th>
+									<th width="50">结算局数</th>
+                                </tr>
+								
+                                </thead>
+                                <tbody>
+                                        <volist	name="list" id="vo">
+										<tr>
+                                            <td>{$vo.name}</td>
+                                            <td>{$vo.date}</td>
+											<td>{$vo.allUser}</td>
+                                            <td>{$vo.newUser}</td>
+                                            <td>{$vo.bindCount}</td>
+											<td>{$vo.dau}</td>
+                                            <td>{$vo.dou}</td>
+                                            <td>{$vo.fee}</td>
+											<td>{$vo.feeCount}</td>
+                                            <td>{$vo.feeRate}%</td>
+                                            <td>{$vo.arpu}</td>
+											<td>{$vo.cash}</td>
+											<td>{$vo.juShu}</td>
+											<td>{$vo.jieSuanJuShu}</td>
+                                        </tr>
+                                        </volist>
+                                 </tbody>
+                            </table>
+							<!-- <div class="showpage">{$pageshow}</div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<include file = "public:footer"/>

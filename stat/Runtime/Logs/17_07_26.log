@@ -1,0 +1,36 @@
+[ 2017-07-26T14:51:57+08:00 ] 192.168.100.60 /index.php?m=Login&a=test
+ERR: 非法操作:test
+
+[ 2017-07-26T14:52:19+08:00 ] 192.168.100.60 /index.php?m=Login&a=test
+ERR: 非法操作:test
+
+[ 2017-07-26T15:16:58+08:00 ] 192.168.100.60 /index.php?m=Login&a=aaa
+ERR: 非法操作:aaa
+
+[ 2017-07-26T15:17:15+08:00 ] 192.168.100.60 /index.php?m=Login&a=test
+ERR: 非法操作:test
+
+[ 2017-07-26T20:47:51+08:00 ] 192.168.100.60 /index.php?m=Agent&a=displayAge
+ERR: 非法操作:displayAge
+
+[ 2017-07-26T20:48:05+08:00 ] 192.168.100.60 /index.php?m=Agent&a=displayAge
+ERR: 非法操作:displayAge
+
+[ 2017-07-26T20:48:29+08:00 ] 192.168.100.60 /index.php?m=Agent&a=displayAge
+ERR: 非法操作:displayAge
+
+[ 2017-07-26T20:49:26+08:00 ] 192.168.100.116 /index.php?m=Agent&a=displayAge
+ERR: 非法操作:displayAge
+
+[ 2017-07-26T20:49:40+08:00 ] 192.168.100.116 /index.php?m=Agent&a=displayAge
+ERR: 非法操作:displayAge
+
+[ 2017-07-26T21:00:50+08:00 ] 192.168.100.60 /index.php?m=Agent&a=displayAge
+ERR: 非法操作:displayAge
+
+[ 2017-07-26T21:03:56+08:00 ] 192.168.100.116 /index.php?m=Agent&a=displayAge
+ERR: 非法操作:displayAge
+
+[ 2017-07-26T21:04:33+08:00 ] 192.168.100.116 /index.php?m=Agent&a=displayAge
+ERR: 非法操作:displayAge
+

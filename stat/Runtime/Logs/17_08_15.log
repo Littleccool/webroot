@@ -1,0 +1,27 @@
+[ 2017-08-15T17:58:31+08:00 ] 192.168.100.116 /index.php?m=Stat&a=agentSum
+ERR: 非法操作:agentSum
+
+[ 2017-08-15T19:24:07+08:00 ] 192.168.100.116 /index.php?m=Stat&a=agentSum
+ERR: 非法操作:agentSum
+
+[ 2017-08-15T19:24:31+08:00 ] 192.168.100.116 /index.php?m=Agent&a=agentQuery
+ERR: 非法操作:agentQuery
+
+[ 2017-08-15T19:24:54+08:00 ] 192.168.100.116 /index.php?m=Agent&a=agentQuery
+ERR: 非法操作:agentQuery
+
+[ 2017-08-15T19:50:04+08:00 ] 192.168.100.116 /index.php?m=Agent&a=agentQuery
+ERR: 非法操作:agentQuery
+
+[ 2017-08-15T20:35:18+08:00 ] 218.17.157.202 /index.php?m=Login&a=login
+ERR: Access denied for user 'root'@'10.104.140.39' to database 'stat'
+
+[ 2017-08-15T20:36:57+08:00 ] 218.17.157.202 /index.php?m=Login&a=login
+ERR: Access denied for user 'root'@'10.104.140.39' to database 'stat'
+
+[ 2017-08-15T20:47:25+08:00 ] 218.17.157.202 /index.php?m=Login&a=login
+ERR: Access denied for user 'root'@'10.104.140.39' to database 'stat'
+
+[ 2017-08-15T21:00:19+08:00 ] 218.17.157.202 /index.php
+ERR: Access denied for user 'root'@'10.104.140.39' to database 'stat'
+

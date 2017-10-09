@@ -1,0 +1,3 @@
+[ 2017-08-23T16:45:49+08:00 ] 218.17.157.202 /index.php?m=Other&a=jinbi
+ERR: Access denied for user 'root'@'10.104.140.39' to database 'work'
+

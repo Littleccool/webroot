@@ -1,0 +1,30 @@
+[ 2017-09-08T17:07:24+08:00 ] 183.15.247.201 /index.php?m=Agent&a=agentQuery
+ERR: 非法操作:agentQuery
+
+[ 2017-09-08T17:26:44+08:00 ] 183.15.245.143 /index.php?m=Agent&a=agentQuery
+ERR: 非法操作:agentQuery
+
+[ 2017-09-08T17:55:08+08:00 ] 183.15.247.201 /index.php?m=Agent&a=downAgency&id=107742
+ERR: 非法操作:downAgency
+
+[ 2017-09-08T17:56:36+08:00 ] 183.15.247.201 /index.php?m=Agent&a=downAgency&id=108016
+ERR: 非法操作:downAgency
+
+[ 2017-09-08T18:08:43+08:00 ] 183.15.247.201 /index.php?m=Agent&a=downAgency&upper_id=107742
+ERR: 参数错误或者未定义:upper_name
+
+[ 2017-09-08T18:15:57+08:00 ] 183.15.247.201 /index.php?m=Agent&a=downAgency&upper_id=107755
+ERR: 参数错误或者未定义:upper_name
+
+[ 2017-09-08T18:16:28+08:00 ] 183.15.247.201 /index.php?m=Agent&a=downAgency&upper_id=107755
+ERR: 参数错误或者未定义:upper_name
+
+[ 2017-09-08T18:36:21+08:00 ] 183.15.247.201 /index.php?m=Agent&a=agentQuery
+ERR: 非法操作:agentQuery
+
+[ 2017-09-08T18:36:57+08:00 ] 183.15.247.201 /index.php?m=Agent&a=agentQuery
+ERR: 非法操作:agentQuery
+
+[ 2017-09-08T18:40:56+08:00 ] 183.15.247.201 /index.php?m=Agent&a=agentQuery
+ERR: 非法操作:agentQuery
+

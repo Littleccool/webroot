@@ -1,0 +1,66 @@
+<include file = "public:head"/>
+	<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">操作员列表</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        
+						
+						<div class="row">
+                            <div class="col-sm-4" style="padding-top:10px;">
+							<if condition="$caozuo.add eq 1"><a class="btn btn-primary btn-sm" href="{:U('User/userreward_add')}"><i class="fa fa-plus"></i> 添加操作员</a></if>
+							</div>
+							<div class="col-sm-8">
+                                <form name="form1" class="form-inline pull-right" method="post" action="">
+                                    <div class="form-group">
+										<input type="text" class="form-control input-sm date" name="user_id" id="user_id" placeholder="用户ID" value="{$user_id}">&nbsp;
+                                    </div>
+                                    <button class="btn btn-primary btn-sm" type="submit">查询</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>用户ID</th>
+                                    <th>赠送比例</th>
+                                    <th>赠送类别</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <volist	name="list" id="vo">
+										<tr>
+                                            <td>{$vo.id}</td>
+                                            <td>{$vo.user_id}</td>
+                                            <td>{$vo.bili}</td>
+                                            <td>{$vo.showcate}</td>
+                                            <td>{$vo.status}</td>
+                                            <td><if condition="$caozuo.edit eq 1"><a href="{:U('User/userreward_edit','id='.$vo['id'])}">修改操作员</a></if>&nbsp;<if condition="$caozuo.del eq 1"><a onclick="return confirm('您确定删除该纪录吗？')" href="{:U('User/userreward_delete','id='.$vo['id'])}">删除操作员</a></if></td>
+                                        </tr>
+                                        </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<include file = "public:footer"/>

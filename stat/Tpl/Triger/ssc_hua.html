@@ -1,0 +1,139 @@
+<include file = "public:head"/>
+	<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">高频彩数据统计</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+					<div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-4" style="padding-top:10px;">
+							<a href="index.php?m={$By_tpl}&a=ssc_hua" data-toggle="tooltip" data-placement="bottom" title="" id="textall" class="text01">花色猜奖</a> | 
+							<a href="index.php?m={$By_tpl}&a=ssc_da" data-toggle="tooltip" data-placement="bottom" title="" id="textnew" class="text02">大小猜奖</a>
+							</div>
+							<div class="col-sm-8">
+                                <form name="form1" class="form-inline pull-right" method="post" action="">
+                                    <div class="form-group">
+										<input type="text" onClick="WdatePicker()" class="form-control input-sm date" name="beginTime" id="beginTime" placeholder="开始时间" value="{$beginTime}">
+                                        -
+                                        <input type="text" onClick="WdatePicker()" class="form-control input-sm date" name="endTime" id="endTime" placeholder="结束时间" value="{$endTime}">&nbsp;&nbsp;
+										
+										
+										&nbsp;&nbsp;
+										期数:<input type="text" class="form-control input-sm" name="qishu" id="qishu" placeholder="期数" value="{$qishu}">
+										&nbsp;&nbsp;
+										发牌模式:
+										<select name="fapaimode" id="fapaimode" style="width:100px; height:30px;">
+										<option value="-1">请选择</option>
+										<option value="0" <if condition="$fapaimode eq 0">selected</if>>吃币模式</option>
+										<option value="1" <if condition="$fapaimode eq 1">selected</if>>吐币模式</option>
+										<option value="2" <if condition="$fapaimode eq 2">selected</if>>随机模式</option>
+										</select>
+										&nbsp;&nbsp;
+                                    </div>
+                                    <button class="btn btn-primary btn-sm" type="submit">查询</button>&nbsp;&nbsp;<a href="{:U($By_tpl.'/ssc_hua')}&act=exceldo1&beginTime={$beginTime}&endTime={$endTime}&qishu={$qishu}&fapaimode={$fapaimode}" target="_blank"><img src="__PUBLIC__/images/daochu1.png" ></a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+					<div class="panel-body">
+                        <div class="table-responsive" style="width:100%;overflow:auto">
+                            <table class="table table-bordered" id="idall" >
+                                <thead>
+								<tr class="order_tr">
+								  <th rowspan="2" valign="middle"><div align="center" style="padding-bottom:20px;">总数据</div></th>
+								  <th height="40" ><div align="center">开奖期数：</div></th>
+								  <th ><div align="left" style="padding-left:5px;" class="text01">{$sum[0]}</div></th>
+								  <th ><div align="center">总押注金：</div></th>
+								  <th ><div align="left" style="padding-left:5px;" class="text01">{$sum[1]}</div></th>
+								  <th ><div align="center">押注人数：</div></th>
+								  <th ><div align="left" style="padding-left:5px;" class="text01">{$sum[2]}</div></th>
+								  <th ><div align="center">总税收：</div></th>
+								  <th ><div align="left" style="padding-left:5px;" class="text01">{$sum[3]}</div></th>
+								  </tr>
+								<tr class="order_tr">
+								  <th height="40" ><div align="center">黑桃押注金：</div></th>
+								  <th ><div align="left" style="padding-left:5px;" class="text01">{$sum[4]}</div></th>
+								  <th ><div align="center">红桃押注金：</div></th>
+								  <th ><div align="left" style="padding-left:5px;" class="text01">{$sum[5]}</div></th>
+								  <th ><div align="center">梅花押注金：</div></th>
+								  <th ><div align="left" style="padding-left:5px;" class="text01">{$sum[6]}</div></th>
+								  <th ><div align="center">方块押注金：</div></th>
+								  <th ><div align="left" style="padding-left:5px;" class="text01">{$sum[7]}</div></th>
+								  </tr>
+								</tbody>
+                            </table>
+							<table class="table table-bordered" id="idall" >
+                                <thead>
+								<tr class="order_tr">
+                                    <th height="40"><div style="text-align:center; ">期数</div></th>
+									<th ><div style="text-align:center">押注人数</div></th>
+									<th ><div style="text-align:center">总押注</div></th>
+									<th ><div style="text-align:center">黑桃</div></th>
+                                    <th ><div style="text-align:center">红桃</div></th>
+                                    <th ><div style="text-align:center">梅花</div></th>
+									<th ><div style="text-align:center">方块</div></th>
+									<th ><div style="text-align:center">奖池金额</div></th>
+									<th ><div style="text-align:center">开奖牌型</div></th>
+									<th ><div style="text-align:center">发放金额</div></th>
+                                    <th ><div style="text-align:center">盈利系数</div></th>
+                                    <th ><div style="text-align:center">税收</div></th>
+									<th ><div style="text-align:center">详情</div></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+										<volist	name="list" id="vo">
+                                        <tr class="order_tr">
+                                            <td height="35" align="center" style="padding-top:20px;">{$vo.qishu}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.betnum}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.totalbet}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.heitaobet}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.hongtaobet}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.meihuabet}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.fangkuaibet}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.jiangchi}</td>
+											<td height="35" align="center" >{$vo.card}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.givegold}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.xishu}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.rate}</td>
+											<td height="35" align="center" style="padding-top:20px;"><a target="_blank" href="{:U($By_tpl.'/ssc_huamore','qishu='.$vo['qishu'])}">详情</a></td>
+                                        </tr>
+										</volist>
+                                </tbody>
+                            </table>
+							
+													
+							
+                            <div class="showpage">{$pageshow}</div>
+                        </div>
+                    </div>
+					
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+	
+	<link rel="stylesheet" href="{$Think.const.CSS_PATH}jquery-ui.css" type="text/css" />
+    <link rel="stylesheet" href="{$Think.const.CSS_PATH}jquery-ui-timepicker-addon.css" type="text/css" />
+    <script src="{$Think.const.JS_PATH}jquery-ui.min.js"></script>
+    <script src="{$Think.const.JS_PATH}jquery-ui-timepicker-addon.js"></script>
+    <script src="{$Think.const.JS_PATH}jquery.ui.datepicker-zh-CN.js"></script>
+    <script src="{$Think.const.JS_PATH}jquery-ui-timepicker-zh-CN.js"></script>
+
+    <link rel="stylesheet" href="{$Think.const.CSS_PATH}jBox.css" />
+    <script src="{$Think.const.JS_PATH}jBox.min.js"></script>
+	
+	
+<include file = "public:footer"/>
+		
+		<script src="__PUBLIC__/js/highcharts.js"></script>
+		<script src="__PUBLIC__/js/modules/exporting.js"></script>

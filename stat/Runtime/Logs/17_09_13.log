@@ -1,0 +1,9 @@
+[ 2017-09-13T17:39:46+08:00 ] 218.17.157.202 /index.php?m=Agent&a=drawDeal
+ERR: 非法操作:drawDeal
+
+[ 2017-09-13T17:43:16+08:00 ] 218.17.157.202 /index.php?m=Agent&a=drawDeal
+ERR: 非法操作:drawDeal
+
+[ 2017-09-13T18:20:27+08:00 ] 218.17.157.202 /index.php?m=Agent&a=drawQuery
+ERR: XML标签语法错误 : name="$vo.stat" value=1
+

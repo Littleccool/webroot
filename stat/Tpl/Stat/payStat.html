@@ -1,0 +1,85 @@
+<include file = "public:head"/>
+	<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">回本</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+			<form class="form-horizontal" method="POST" action="" id="addUserForm">
+			<div class="form-group">
+				<label for="username" class="col-sm-2 control-label">平台</label>
+				<div class="col-sm-4">
+					<select  name="appId" style="height:30px;">
+						<volist name="gamelist" id="vo">
+						<option value="{$vo.appId}">{$vo.name}</option>
+						</volist>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" id="addUserSubmit" class="btn btn-primary">提 交</button>
+				</div>
+			</div>
+        </form>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped"  border="1px" cellpadding="1" cellspacing="1" style="table-layout:fixed" >
+                                <thead>
+                                <tr>
+								    <th width="80">游戏名称</th>
+                                    <th width="80">注册日期</th>
+                                    <th width="80">注册人数</th>
+									<th width="100" colspan="2">total</th>
+									<volist	name="dayList" id="vo">
+									<th width="100" colspan="2" >d{$vo}</th>
+                                    </volist>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <volist	name="payList" id="vo">
+										<tr>
+                                            <td>{$vo.name}</td>
+                                            <td>{$vo.date}</td>
+											<td>{$vo.dnu}</td>
+											<td>{$vo.total}</td>
+											<td>{$vo.avg}</td>
+											<volist	name="vo['days']" id="vo1">
+                                            <td>{$vo1}</td>
+											</volist>
+											
+                                           
+                                        </tr>
+                                        </volist>
+										<tr>
+										<td>total</td>
+										<td>total</td>
+										<volist	name="totalList" id="vo">										
+											<td>{$vo.person}</td>
+                                            <td>{$vo.total}</td>
+											<td>{$vo.avg}</td>
+                                           	<volist	name="vo['days']" id="vo1">
+                                            <td>{$vo1}</td>
+											</volist>
+                                        
+                                        </volist>
+										</tr>
+                                 </tbody>
+                            </table>
+							<div class="showpage">{$pageshow}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<include file = "public:footer"/>

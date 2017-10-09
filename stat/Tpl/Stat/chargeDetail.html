@@ -1,0 +1,134 @@
+<include file = "public:head"/>
+
+<script type="text/javascript">
+//时间选择
+function selecttime(){  
+        var endTime = $("#sdate").val();
+        if(endTime != ""){
+            WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:endTime});
+        }else{
+            WdatePicker({dateFmt:'yyyy-MM-dd'});
+        }    
+}
+
+</script>
+
+	<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">单日充值明细</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+			<form class="form-horizontal" method="POST" action="" id="addUserForm">
+			<div class="form-group">
+				<label for="username" class="col-sm-2 control-label">平台</label>
+				<div class="col-sm-4">
+					<select  name="appId" style="height:30px;">
+						<volist name="gamelist" id="vo">
+						<option value="{$vo.appId}">{$vo.name}</option>
+						</volist>
+					</select>
+				</div>
+				<div class="col-sm-4">
+					<td>日期:</td>
+					<td><input type="text" name="start_time" id="sdate" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})"  size="17" class="date" readonly> </td>
+				</div>
+			</div>
+		<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" id="addUserSubmit" class="btn btn-primary">提 交</button>
+				</div>
+			</div>
+        </form>
+			
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+						
+						<table class="table table-striped"  id="tbfirst" style="table-layout:fixed" width="50%">
+			
+								<thead>
+                                <tr>
+									 <th width="50"  >充值汇总</th>
+									<th width="50" ></th>
+									<th width="50" ></th>
+									<th width="50" ></th>
+									<th width="50" ></th>
+
+                                </tr>
+                                </thead>
+								<volist	name="totalInfo" id="vo">
+								<tr><td>充值总额</td><td>{$vo.rmb}</td></tr>
+								<tr><td>钻石总额</td><td>{$vo.cash}</td></tr>
+								<tr><td>笔数</td><td>{$vo.times}</td></tr>
+								<tr><td>人数</td><td>{$vo.person}</td></tr>
+								</volist>                               
+</table>
+						<table class="table table-striped"  id="tb" cellspacing="1" cellpadding="0"
+            width="100%" style="table-layout:fixed">
+			
+								<!-- <thead>
+                                <tr>
+									<th width="50" colspan="2" >充值汇总</th>
+                                </tr>
+                                </thead>
+								<volist	name="totalInfo" id="vo">
+
+								<tr><td>充值总额</td><td>{$vo.rmb}</td></tr>
+								<tr><td>钻石总额</td><td>{$vo.cash}</td></tr>
+								<tr><td>笔数</td><td>{$vo.times}</td></tr>
+								<tr><td>人数</td><td>{$vo.person}</td></tr>
+								</volist> -->
+								<thead> 
+                                <tr>
+									<th width="50" >充值时间</th>
+									<th width="50" >玩家名称</th>
+									<th width="50" >uid</th>
+									<th width="50" >充值金额</th>
+									<th width="50" >充值钻石</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+								<volist	name="list" id="vo">
+								
+                                <tr> 
+									<td>{$vo.ts}</td>
+									<td>{$vo.nickName}</td>
+									<td>{$vo.uid}</td>
+									<td>{$vo.rmb}</td>
+									<td>{$vo.cash}</td>
+								</tr>                              								
+								</volist>
+                                 </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<script type="text/javascript"> 
+jQuery(document).ready(function() {
+
+ 	var d = new Date();
+    	function addzero(v) {if (v < 10) return '0' + v;return v.toString();}
+    	var s = d.getFullYear().toString() + '-'+addzero(d.getMonth() + 1) + '-' +  d.getDate(); 
+    	document.getElementById('sdate').value=s;
+	//$("#sdate").simpleDatepicker({startdate: 2011, enddate: 2018});
+	
+	var today = new Date();
+	var month = today.getMonth() + 1;
+	var year = today.getFullYear();
+	var day = today.getDate();
+	var defsdate = month + "/" + day + "/" + year;
+	$("#sdate").val(defsdate);
+});
+
+</script>
+
+<include file = "public:footer"/>

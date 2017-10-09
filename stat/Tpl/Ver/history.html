@@ -1,0 +1,57 @@
+<include file = "public:head"/>
+	<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">整包更新历史记录</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr class="order_tr">
+                                    <th>编号</th>
+                                    <th>版本号</th>
+                                    <th>更新类型</th>
+									<th>更新内容</th>
+                                    <th>APK文件地址</th>
+									<th>简述</th>
+									<th>备注</th>
+									<th>添加人</th>
+									<th>添加时间</th>
+									<th>发布时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <volist	name="list" id="vo">
+										<tr class="order_tr">
+                                            <td>{$vo.id}</td>
+                                            <td>{$vo.version}</td>
+                                            <td>{$vo.type}</td>
+											<td>{$vo.update_show}</td>
+                                            <td>{$vo.src}</td>
+											<td>{$vo.detail}</td>
+											<td>{$vo.remark}</td>
+											<td>{$vo.createuser}</td>
+											<td>{$vo.addtime}</td>
+											<td>{$vo.publictime}</td>
+                                        </tr>
+                                        </volist>
+                                </tbody>
+                            </table>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+	<link href="{$Think.const.CSS_PATH}order.css" rel="stylesheet">
+
+<include file = "public:footer"/>

@@ -1,0 +1,9 @@
+[ 2017-08-01T15:27:33+08:00 ] 192.168.100.116 /index.php?m=Agent&a=dituiAdd
+ERR: 非法操作:dituiAdd
+
+[ 2017-08-01T16:30:52+08:00 ] 192.168.100.116 /index.php?m=Agent&a=auditing
+ERR: 模板不存在[./stat/Tpl/Agent/auditing.html]
+
+[ 2017-08-01T17:15:19+08:00 ] 192.168.100.116 /index.php?m=Agent&a=agentQuery
+ERR: 非法操作:agentQuery
+

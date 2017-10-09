@@ -1,0 +1,175 @@
+<include file = "public:head"/>
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"  id="postTip">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">玩家详情</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+		
+		<div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+
+								<tr>
+                                   <td width="10%"><div style="text-align:right;">用户UID：</div></td>
+                                   <td width="23%"><div style="text-align:left; padding-left:10px;">{$info.user_id}</div></td>
+								   <td width="10%"><div style="text-align:right;">登录账号：</div></td>
+                                   <td width="23%"><div style="text-align:left; padding-left:10px;">{$info.user_name}</div></td>
+								   <td width="10%"><div style="text-align:right;">用户昵称：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px; ">{$info.nickname}<span style="float:right; padding-right:10px; width:50px; "><input type="button" name="weigui1" id="weigui1" value="违规"></span></div></td>
+                                </tr>
+								<tr>
+                                   <td><div style="text-align:right;">金币：</div></td>
+                                   <td>
+								   <div id="info_gold1" style="text-align:left; padding-left:10px;">{$info.gold}<span style="float:right; padding-right:10px; width:50px; "><input onclick="showdiv('info_gold');" type="button" name="xiugai1" id="xiugai1" value="修改"></span></div>
+								   <div id="info_gold2" style="text-align:left; padding-left:10px; display:none;"><input type="text" name="gold" id="gold" placeholder="金币" value="{$info.gold}" style="width:80px;">&nbsp;
+								   &nbsp;<input type="text" name="yuanyin01" id="yuanyin01" placeholder="操作原因" value="">&nbsp;<input type="button" name="tijiao01" id="tijiao01" value="提交"></div>
+								   </td>
+								   <td><div style="text-align:right;">钻石：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.diamond}<span style="float:right; padding-right:10px; width:50px; "><input type="button" name="xiugai2" id="xiugai2" value="修改"></span></div></td>
+								   <td><div style="text-align:right;">礼券：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.ticket}<span style="float:right; padding-right:10px; width:50px; "><input type="button" name="xiugai3" id="xiugai3" value="修改"></span></div></td>
+								   
+                                </tr>
+								<tr>
+								   <td><div style="text-align:right;">VIP等级：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.viplevel}<span style="float:right; padding-right:10px; width:50px; "><input type="button" name="xiugai4" id="xiugai4" value="修改"></span></div></td>
+								   <td><div style="text-align:right;">vip到期时间：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.vipovertime}</div></td>
+								   <td><div style="text-align:right;">银行存款：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.deposit}<span style="float:right; padding-right:10px; width:50px; "><input type="button" name="xiugai5" id="xiugai5" value="修改"></span></div></td>
+								   
+                                </tr>
+								<tr>
+								   <td><div style="text-align:right;">魅力值：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.charm}</div></td>
+								   <td><div style="text-align:right;">鲜花：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.flower}<span style="float:right; padding-right:10px; width:50px; "><input type="button" name="xiugai6" id="xiugai6" value="修改"></span></div></td>
+								   <td><div style="text-align:right;">鸡蛋：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.aggs}<span style="float:right; padding-right:10px; width:50px; "><input type="button" name="xiugai7" id="xiugai7" value="修改"></span></div></td>
+                                </tr>
+								<tr>
+								   <td><div style="text-align:right;">汽车：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.car}<span style="float:right; padding-right:10px; width:50px; "><input type="button" name="xiugai8" id="xiugai8" value="修改"></span></div></td>
+								   <td><div style="text-align:right;">房子：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.villa}<span style="float:right; padding-right:10px; width:50px; "><input type="button" name="xiugai9" id="xiugai9" value="修改"></span></div></td>
+								   <td><div style="text-align:right;">飞机：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.yacht}<span style="float:right; padding-right:10px; width:50px; "><input type="button" name="xiugai10" id="xiugai10" value="修改"></span></div></td>
+                                </tr>
+								<tr>
+                                   <td><div style="text-align:right;">用户输的次数：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.lost_count}次</div></td>
+								   <td><div style="text-align:right;">用户赢的次数：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.win_count}次</div></td>
+								   <td><div style="text-align:right;">胜率：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.lv}%</div></td>
+                                </tr>
+								<tr>
+                                   <td><div style="text-align:right;">注册日期：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.register_date}</div></td>
+								   <td><div style="text-align:right;">最后登录日期：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.last_login_date}</div></td>
+								   <td><div style="text-align:right;">连续登陆天数：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.conti_login_count}</div></td>
+                                </tr>
+								<tr>
+                                   <td><div style="text-align:right;">登录次数：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.login_count}</div></td>
+								   <td><div style="text-align:right;">版本号：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.version} (当前游戏版本：{$info.gameversion})</div></td>
+								   <td><div style="text-align:right;">渠道号：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.channel} (最后登陆渠道：{$info.last_channel})</div></td>
+                                </tr>
+								<tr>
+                                   <td><div style="text-align:right;">手机卡号：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.imsi}</div></td>
+								   <td><div style="text-align:right;">机型：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.model}</div></td>
+								   <td><div style="text-align:right;">机器号：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.imei}</div></td>
+                                </tr>
+								<tr>
+                                   <td><div style="text-align:right;">充值次数：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.paycount}</div></td>
+								   <td><div style="text-align:right;">充值金额：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">&yen;{$info.total_pay_num}元</div></td>
+								   <td><div style="text-align:right;">手机号：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.phone_number}</div></td>
+                                </tr>
+								<tr>
+                                   <td><div style="text-align:right;">注册IP：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.ip1}{$info.area1}</div></td>
+								   <td><div style="text-align:right;">最近登陆IP：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.ip2}{$info.area2}</div></td>
+								   <td><div style="text-align:right;">性别：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.sex}</div></td>
+                                </tr>
+								<tr>
+                                   <td><div style="text-align:right;">状态：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;"><if condition="$info.enable eq 1">启动<else />禁用</if></div></td>
+								   <td><div style="text-align:right;">网卡地址：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.macaddr}</div></td>
+								   <td><div style="text-align:right;">免费抽奖券数量：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.lotterydraw_count}</div></td>
+                                </tr>
+								<tr>
+                                   <td><div style="text-align:right;">个性签名：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.sign}<span style="float:right; padding-right:10px; width:50px; "><input type="button" name="weigui2" id="weigui2" value="违规"></span></div></td>
+								   <td><div style="text-align:right;">联系方式：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.contact}</div></td>
+								   <td><div style="text-align:right;">常住地址：</div></td>
+                                   <td><div style="text-align:left; padding-left:10px;">{$info.province}{$info.city}<span style="float:right; padding-right:10px; width:50px; "><input type="button" name="weigui3" id="weigui3" value="违规"></span></div></td>
+                                </tr>
+							</table>
+							<table class="table table-bordered">		
+								<tr>
+                                   <td width="14%" rowspan="2"><div style="text-align:left; padding-left:10px;"><img src="http://api.pic.kk520.com:9101/work/{$info.head_picture}.jpg" width="100" height="75">&nbsp;<input type="button" name="weigui4" id="weigui4" value="头像违规"></div></td>
+								   <td width="43%"><div style="text-align:left; padding-left:10px;">
+								   <select name="caozuo" id="caozuo"><option value="0">允许所有操作</option><option value="1">禁止修改头像</option><option value="2">禁止修改昵称</option><option value="3">禁止修改信息</option><option value="4">禁止全部修改</option></select>&nbsp;&nbsp;&nbsp;&nbsp;禁止时间至：<input type="text" onClick="WdatePicker()" name="time1" id="time1" placeholder="禁止时间至" value="{$time1}">&nbsp;&nbsp;<input type="text" name="yuanyin1" id="yuanyin1" placeholder="操作原因" value="">
+								   </div></td>
+                                   <td width="33%"><div style="text-align:left; padding-left:10px;">
+								   设置帐号状态：<select name="enable" id="enable"><option value="1">帐号正常</option><option value="0">封停帐号</option></select>&nbsp;&nbsp;&nbsp;&nbsp;
+								   封号至：<input type="text" onClick="WdatePicker()" name="time3" id="time3" placeholder="封号至" value="{$time3}">&nbsp;&nbsp;&nbsp;&nbsp;
+								   &nbsp;<input type="text" name="yuanyin3" id="yuanyin3" placeholder="操作原因" value="">&nbsp;<input type="button" name="tijiao3" id="tijiao3" value="提交"></div></td>
+                                </tr>
+								<tr>
+								  <td><div style="text-align:left; padding-left:10px;"><input type="checkbox" name="cate21" value="1">踢人&nbsp;&nbsp;<input type="checkbox" name="cate22" value="1">发喇叭&nbsp;&nbsp;<select name="limit2" id="limit2"><option value="1">限制1天</option><option value="2">限制3天</option><option value="3">永久限制</option><option value="4">解除限制</option></select>&nbsp;<input type="text" name="yuanyin2" id="yuanyin2" placeholder="操作原因" value="">&nbsp;<input type="button" name="tijiao2" id="tijiao2" value="提交"></div>							      </td>
+                                  <td width="43%"><div style="text-align:left; padding-left:10px;">推送玩家信息：<input type="text" name="xinxi3" id="xinxi3" placeholder="请输入推送玩家信息" value="">&nbsp;<input type="button" name="tijiao3" id="tijiao3" value="提交"></div></td>
+  </tr>
+
+                            </table>
+		
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  	
+
+            
+    <script src="{$Think.const.JS_PATH}jquery.form.js"></script>
+<script type="text/javascript">
+function showdiv(id){
+	temp1 = "#" + id + "1";
+	temp2 = "#" + id + "2";
+	$(temp1).hide();
+	$(temp2).show();
+}
+</script>
+
+<include file = "public:footer"/>

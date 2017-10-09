@@ -1,0 +1,54 @@
+<include file = "public:head"/>
+	<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">{$upper_name}的下级用户</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="15">用户id</th>
+                                    <th width="15">姓名</th>
+				<th width="40">微信号</th>
+				<th width="20">游戏id</th>
+				<th width="50">代理等级</th>
+				<th width="20">上级代理id</th>
+				<th width="20">创建时间</th>
+				<th width="20">电话号码</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <volist	name="list" id="vo">
+					<tr>
+                                            <td>{$vo.game_uid}</td>
+                                            <td>{$vo.name}</td>
+                                            <td>{$vo.wx_name}</td>
+                                            <td>{$vo.game_id}</td>
+		   			    <td>{$vo.level}</td>
+                                            <td>{$vo.upper_id}</td>
+                                            <td>{$vo.createDate}</td>
+					    <td>{$vo.tele_phone}</td>
+                                        </tr>
+                                        </volist>
+                                 </tbody>
+                            </table>
+							<div class="showpage">{$pageshow}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<include file = "public:footer"/>

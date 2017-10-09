@@ -1,0 +1,121 @@
+<include file = "public:head"/>
+	<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">回头率</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+		<form class="form-horizontal" method="POST" action="" id="addUserForm">
+			<div class="form-group">
+				<label for="username" class="col-sm-2 control-label">平台</label>
+				<div class="col-sm-4">
+					<select  name="appId" style="height:30px;">
+						<volist name="gamelist" id="vo">
+						<option value="{$vo.appId}">{$vo.name}</option>
+						</volist>
+					</select>
+				</div>
+			</div>
+		<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" id="addUserSubmit" class="btn btn-primary">提 交</button>
+				</div>
+			</div>
+        </form>
+		
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="100">游戏名称</th>
+                                    <th width="50">日期</th>
+									<th width="50">dnu</th>
+									<th width="50">d1</th>
+									<th width="50">d2</th>
+									<th width="50">d3</th>
+									<th width="50">d4</th>
+									<th width="50">d5</th>
+									<th width="50">d6</th>
+									<th width="50">d7</th>
+									<th width="50">d8</th>
+									<th width="50">d9</th>
+									<th width="50">d10</th>
+									<th width="50">d11</th>
+									<th width="50">d12</th>
+									<th width="50">d13</th>
+									<th width="50">d14</th>
+									<th width="50">d15</th>
+									<th width="50">d16</th>
+									<th width="50">d17</th>
+									<th width="50">d18</th>
+									<th width="50">d19</th>
+									<th width="50">d20</th>
+									<th width="50">d21</th>
+									<th width="50">d22</th>
+									<th width="50">d23</th>
+									<th width="50">d24</th>
+									<th width="50">d25</th>
+									<th width="50">d26</th>
+									<th width="50">d27</th>
+									<th width="50">d28</th>
+									<th width="50">d29</th>
+									<th width="50">d30</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <volist	name="list" id="vo">
+										<tr>
+                                            <td>{$vo.name}</td>
+                                            <td>{$vo.date}</td>
+											<td>{$vo.dnu}</td>
+                                            <td>{$vo.d1}</td>
+											<td>{$vo.d2}</td>
+                                            <td>{$vo.d3}</td>
+                                            <td>{$vo.d4}</td>
+											<td>{$vo.d5}</td>
+                                            <td>{$vo.d6}</td>
+                                            <td>{$vo.d7}</td>
+											<td>{$vo.d8}</td>
+                                            <td>{$vo.d9}</td>
+                                            <td>{$vo.d10}</td>
+											<td>{$vo.d11}</td>
+                                            <td>{$vo.d12}</td>
+                                            <td>{$vo.d13}</td>
+											<td>{$vo.d14}</td>
+                                            <td>{$vo.d15}</td>
+                                            <td>{$vo.d16}</td>
+											<td>{$vo.d17}</td>
+                                            <td>{$vo.d18}</td>
+                                            <td>{$vo.d19}</td>
+											<td>{$vo.d20}</td>
+                                            <td>{$vo.d21}</td>
+                                            <td>{$vo.d22}</td>
+											<td>{$vo.d23}</td>
+                                            <td>{$vo.d24}</td>
+                                            <td>{$vo.d25}</td>
+                                            <td>{$vo.d26}</td>
+                                            <td>{$vo.d27}</td>
+                                            <td>{$vo.d28}</td>
+                                            <td>{$vo.d29}</td>
+                                            <td>{$vo.d30}</td>
+                                        </tr>
+                                        </volist>
+                                 </tbody>
+                            </table>
+							<div class="showpage">{$pageshow}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<include file = "public:footer"/>

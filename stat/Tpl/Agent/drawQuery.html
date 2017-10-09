@@ -1,0 +1,50 @@
+<include file = "public:head"/>
+	<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">提现申请记录</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" cellspacing="1" cellpadding="0"
+            width="100%" style="table-layout:fixed">
+                                <thead>
+                                <tr>
+                                    <th width="50">代理id</th>
+									<th width="50">昵称</th>
+									<th width="50">申请时间</th>
+									<th width="50">金额</th>
+									<th width="50">放款时间</th>
+									<th width="50">操作</th>
+                                </tr>
+								
+                                </thead>
+                                <tbody>
+                                        <volist	name="list" id="vo">
+										<tr>
+                                            <td>{$vo.agency_id}</td>
+											<td>{$vo.name}</td>
+                                            <td>{$vo.apply_date}</td>
+											<td>{$vo.amount}</td>
+                                            <td>{$vo.deal_date}</td>
+                                            <td><eq name="vo.stat" value="1"><a href="{:U('Agent/drawDeal','trade_no='. $vo['trade_no'] . '&agency_id='. $vo['agency_id'] . "&game_id=".$vo['game_id'])}">提现</a><else/>已提现</eq></td>
+                                        </tr>
+                                        </volist>
+                                 </tbody>
+                            </table>
+							<!-- <div class="showpage">{$pageshow}</div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<include file = "public:footer"/>

@@ -1,0 +1,96 @@
+<include file = "public:head"/>
+	<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">高频彩数据统计</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+					<div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-4" style="padding-top:10px;">
+							第<font color="#FF0000">{$qishu}</font>期花色猜奖详情
+							</div>
+							<div class="col-sm-8">
+                                <form name="form1" class="form-inline pull-right" method="post" action="">
+									<input type="hidden" name="qishu" value="{$qishu}">
+                                    <div class="form-group">
+										
+										用户ID:<input type="text" class="form-control input-sm" name="uid" id="uid" placeholder="用户ID" value="{$uid}">
+										&nbsp;&nbsp;
+										
+                                    </div>
+                                    <button class="btn btn-primary btn-sm" type="submit">查询</button>&nbsp;&nbsp;
+                                    <a href="{:U($By_tpl.'/ssc_huamore')}&act=exceldo1&qishu={$qishu}&uid={$uid}" target="_blank"><img src="__PUBLIC__/images/daochu1.png" ></a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+					<div class="panel-body">
+                        <div class="table-responsive" style="width:100%;overflow:auto">
+                            
+							<table class="table table-bordered" id="idall" >
+                                <thead>
+								<tr class="order_tr">
+                                    <th height="40"><div style="text-align:center; ">用户ID</div></th>
+									<th ><div style="text-align:center">黑桃</div></th>
+                                    <th ><div style="text-align:center">红桃</div></th>
+                                    <th ><div style="text-align:center">梅花</div></th>
+									<th ><div style="text-align:center">方块</div></th>
+									<th ><div style="text-align:center">牌型</div></th>
+									<th ><div style="text-align:center">押注总额</div></th>
+									<th ><div style="text-align:center">赢钱</div></th>
+                                    <th ><div style="text-align:center">税收</div></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+										<volist	name="list" id="vo">
+                                        <tr class="order_tr">
+                                            <td height="35" align="center" style="padding-top:20px;">{$vo.uid}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.heitao_bet}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.hongtao_bet}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.meihua_bet}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.fangkuai_bet}</td>
+											<td height="35" align="center" >{$vo.card}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.totalbet}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.huase_reward}</td>
+											<td height="35" align="center" style="padding-top:20px;">{$vo.huase_rate}</td>
+                                        </tr>
+										</volist>
+                                </tbody>
+                            </table>
+							
+													
+							
+                            <div class="showpage">{$pageshow}</div>
+                        </div>
+                    </div>
+					
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+	
+	<link rel="stylesheet" href="{$Think.const.CSS_PATH}jquery-ui.css" type="text/css" />
+    <link rel="stylesheet" href="{$Think.const.CSS_PATH}jquery-ui-timepicker-addon.css" type="text/css" />
+    <script src="{$Think.const.JS_PATH}jquery-ui.min.js"></script>
+    <script src="{$Think.const.JS_PATH}jquery-ui-timepicker-addon.js"></script>
+    <script src="{$Think.const.JS_PATH}jquery.ui.datepicker-zh-CN.js"></script>
+    <script src="{$Think.const.JS_PATH}jquery-ui-timepicker-zh-CN.js"></script>
+
+    <link rel="stylesheet" href="{$Think.const.CSS_PATH}jBox.css" />
+    <script src="{$Think.const.JS_PATH}jBox.min.js"></script>
+	
+	
+<include file = "public:footer"/>
+		
+		<script src="__PUBLIC__/js/highcharts.js"></script>
+		<script src="__PUBLIC__/js/modules/exporting.js"></script>

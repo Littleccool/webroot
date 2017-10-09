@@ -1,0 +1,78 @@
+<include file = "public:head"/>
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"  id="postTip">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">活动弹框配置</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+		<if condition="$caozuo.add eq 1">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <form class="form-horizontal" method="POST" action="" id="addUserForm" name="addUserForm">
+							<input type="hidden" name="cate" id="cate" value="0">
+							
+							<div class="form-group">
+                                <label for="username" class="col-sm-2 control-label">标题</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="title" name="title" value="{$kuang.title}" placeholder="标题">
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label for="username" class="col-sm-2 control-label">内容</label>
+                                <div class="col-sm-8" ><textarea name="contents" id="contents" rows="5" class="form-control">{$kuang.contents}</textarea></div>
+                            </div>
+							<div class="form-group">
+                                <label for="username" class="col-sm-2 control-label">开始日期</label>
+                                <div class="col-sm-8">
+                                    <input type="text" onClick="WdatePicker()" class="form-control input-sm date" name="beginTime" id="beginTime" placeholder="开始时间" value="{$kuang.beginTime}">
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label for="username" class="col-sm-2 control-label">结束日期</label>
+                                <div class="col-sm-8">
+                                    <input type="text" onClick="WdatePicker()" class="form-control input-sm date" name="endTime" id="endTime" placeholder="结束时间" value="{$kuang.endTime}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" id="addUserSubmit" class="btn btn-primary">提 交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+		</if>
+		
+
+
+    </div>
+
+	    	
+
+            
+    <script src="{$Think.const.JS_PATH}jquery.form.js"></script>
+    <script type="text/javascript">
+
+	function chaxun(){
+		$("#cate").val('1');
+		document.addUserForm.submit();
+	}
+ 
+</script>
+
+<include file = "public:footer"/>

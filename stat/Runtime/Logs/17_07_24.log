@@ -1,0 +1,3 @@
+[ 2017-07-24T16:02:46+08:00 ] 192.168.100.116 /index.php?m=Gai&a=wel
+ERR: Access denied for user 'root'@'192.168.100.252' to database 'stat'
+
