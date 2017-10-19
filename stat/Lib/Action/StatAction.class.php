@@ -50,16 +50,16 @@ class StatAction extends BaseAction {
 	
 	public function keyData(){
 		$row = M('key_data');
-		$appId=I('appId');
+		$appId=I('appId') ? I('appId') : '10000';
 		$row1 = M('game_list');
 
 		import('ORG.Util.Page');
-		$count = $row->count('appId');
+		$count = $row->where(array('appId'=>$appId))->count();
 		$Page = new Page($count,15);//实例化分页类传入总记录数和每页显示的记录数		
 		$show = $Page->show();// 分页显示输出
 		//$list =  = $returnRateTable->where('appId = $appId')->select();
 		if(!empty($appId)){
-			$list = $row->where('appId=' . $appId)->order('date DESC')->select();
+			$list = $row->where('appId=' . $appId)->order('date DESC')->limit($Page->firstRow.','.$Page->listRows)->select();
 		}
 		//$list = $row->select();
 		$gameList = $row1->select();
