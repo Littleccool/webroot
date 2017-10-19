@@ -492,5 +492,9 @@ class AgentAction extends BaseAction {
 
 			$this->display();	*/
 		}			
-	}	
+	}
+        
+        public function corps(){
+            $this->display();
+        }
 }
