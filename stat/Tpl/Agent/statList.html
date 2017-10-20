@@ -1,0 +1,61 @@
+<include file = "public:head"/>
+	<div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">审核列表</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="10">代理id</th>
+                                    <th width="10">姓名</th>
+				<th width="20">微信号</th>
+				<th width="15">游戏id</th>
+				<th width="30">等级</th>
+				<th width="20">上级id</th>
+				<th width="20">代理数</th>
+				<th width="20">用户数</th>
+				<th width="20">创建时间</th>
+				<th width="20">电话号码</th>
+                                <th width="20">审核状态</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <volist	name="list" id="vo">
+					<tr>
+                                            <td>{$vo.game_uid}</td>
+                                            <td>{$vo.name}</td>
+                                            <td>{$vo.wx_name}</td>
+                                            <td>{$vo.game_id}</td>
+		   			    <td>{$vo.level}</td>
+                                            <td>{$vo.upper_id}</td>
+
+                                            <td><if condition="$vo.downAgencyCount gt 0"><a href="{:U('Agent/downAgency','upper_id='.$vo['game_uid'])}">{$vo.downAgencyCount}</a><else />0</if></td>
+                                            <td><if condition="$vo.downUserCount gt 0"><a href="{:U('Agent/downUser','upper_id='.$vo['game_uid'])}">{$vo.downUserCount}</a><else />0</if></td>
+                                            <td>{$vo.createDate}</td>
+					    <td>{$vo.tele_phone}</td>
+                                            <td>未审核</td>
+                                        </tr>
+                                        </volist>
+                                 </tbody>
+                            </table>
+							<div class="showpage">{$pageshow}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<include file = "public:footer"/>

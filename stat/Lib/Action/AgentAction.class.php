@@ -497,4 +497,31 @@ class AgentAction extends BaseAction {
         public function corps(){
             $this->display();
         }
+        
+        public function statList(){
+            $agency = M('agency');
+            $condition['stat'] = 1;
+
+            //$list = $agency->where($condition)->order('level desc')->order('game_uid')->select();
+            $list = $agency->where($condition)->order('bind_ts desc')->select();
+            foreach($list as $key => $val){
+                    $where = array();
+                    $where["upper_id"] = $val['game_uid'];
+                    $where["level"] = array('gt', 0);
+                    $where["stat"] = 0;
+                    $downAgency = $agency->where($where)->select();
+                    $list[$key]["downAgencyCount"] = count($downAgency);
+
+                    $where = array();
+                    $where["upper_id"] = $val['game_uid'];
+                    $where["level"] = 0;
+                    $downUser = $agency->where($where)->select();
+                    $list[$key]["downUserCount"] = count($downUser);
+
+                    $list[$key]["createDate"]= date("Y-m-d H:i:s",$list[$key]["bind_ts"]);	
+            }
+            $this->assign('left_css',"1");
+            $this->assign('list',$list);
+            $this->display();
+        }
 }

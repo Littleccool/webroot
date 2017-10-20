@@ -10,7 +10,7 @@ class ReportAction extends Action {
 		$result = $agency->add($data);
 		if (!$result)
 		{
-			$result = $agency->save($data);
+			$result = $agency->where(array('game_uid'=>$data['game_uid']))->save($data);
 			echo $result;
 		}
 	}
